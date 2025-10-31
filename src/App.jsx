@@ -16,6 +16,8 @@ import MarqueeSection from './components/MarqueeSection';
 import WalletInfo from './components/WalletInfo';
 import WalletButton from './components/WalletButton';
 import Roadmap from './components/Roadmap';
+import ContactUs from './components/ContactUs';
+import RevenueChart from './components/RevenueChart';
 function App() {
     
   const containerRef = useRef(null);
@@ -64,8 +66,10 @@ function App() {
         <RipplePulseSphere/>
         <SwirlSphere/>
         <WaveformSphere/> */}
+        <RevenueChart/>
         <Roadmap/>
         <FAQSection/> 
+        <ContactUs/>
         {/* <Hero />
         <Sphere />
         <StatsSection /> */}
