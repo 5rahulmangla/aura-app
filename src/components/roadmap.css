@@ -1,0 +1,68 @@
+/* 🌟 Glossy Animated Border for Rounded Cards */
+.roadmap-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem; /* Adjust if you use rounded-xl / rounded-2xl in Tailwind */
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.3s ease;
+}
+
+.roadmap-card:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 💫 Gloss effect wrapper */
+.edge-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ✨ Glossy animated gradient */
+.edge-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 0.5px; /* thicker glossy border */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.25) 25%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.25) 75%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  background-size: 300% 300%;
+  mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: moveGloss 8s ease-in-out infinite;
+  filter: brightness(1.2);
+}
+
+/* 🌈 Subtle inner glow for depth */
+.roadmap-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+/* 🌀 Moving gloss animation */
+@keyframes moveGloss {
+  0% {
+    background-position: 130% 0%;
+  }
+  50% {
+    background-position: 0% 130%;
+  }
+  100% {
+    background-position: 130% 0%;
+  }
+}
