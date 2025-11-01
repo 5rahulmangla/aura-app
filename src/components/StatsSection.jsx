@@ -19,6 +19,7 @@ export default function StatsSection() {
     const cards = cardsRef.current.filter(Boolean)
     const numbers = numbersRef.current.filter(Boolean)
 
+    // Fade-in animation for cards
     cards.forEach((card, index) => {
       gsap.fromTo(
         card,
@@ -39,6 +40,7 @@ export default function StatsSection() {
       )
     })
 
+    // Counter animation
     numbers.forEach((numberEl, index) => {
       const statCard = stats[index]
       const obj = { val: 0 }
@@ -67,13 +69,14 @@ export default function StatsSection() {
   }, [])
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-black/50">
+    <div className="relative px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-black/50 overflow-hidden">
+      {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-7xl mx-auto">
         {stats.map((stat, index) => (
           <div
             key={index}
             ref={(el) => (cardsRef.current[index] = el)}
-            className="p-4 sm:p-6 rounded-lg sm:rounded-2xl border border-white/20 bg-black/40 hover:border-white/40 transition-colors"
+            className="p-4 sm:p-6 rounded-lg sm:rounded-2xl border border-white/20 bg-black/40 hover:border-white/40 transition-colors backdrop-blur-md"
           >
             <div
               ref={(el) => (numbersRef.current[index] = el)}
@@ -85,6 +88,9 @@ export default function StatsSection() {
           </div>
         ))}
       </div>
+
+      {/* Glossy horizontal line at end */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
     </div>
   )
 }

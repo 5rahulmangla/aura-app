@@ -36,7 +36,9 @@ export default function Sphere() {
   }, [])
 
   return (
+    
     <div ref={containerRef} className="flex justify-center items-center py-24 h-96 relative">
+      
       {/* Glowing sphere background */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-80 h-80 rounded-full bg-gradient-to-b from-white/20 to-transparent blur-3xl" />
@@ -78,6 +80,7 @@ export default function Sphere() {
         {/* Darker outer rim */}
         <circle cx="200" cy="200" r="180" fill="none" stroke="url(#sphereGradient)" strokeWidth="3" />
       </svg>
+       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
     </div>
   )
 }

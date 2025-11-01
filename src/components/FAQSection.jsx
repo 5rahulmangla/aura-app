@@ -104,64 +104,75 @@ export default function FAQSection() {
   }, [])
 
   return (
-    <section ref={containerRef} className="w-full py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-black">
-      <div className="max-w-4xl mx-auto">
-        {/* Section Title */}
-        <div ref={titleRef} className="mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 text-center text-balance">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 text-center max-w-2xl mx-auto">
-            Find answers to common questions about our finance tracking platform and services.
-          </p>
-        </div>
+   <section
+  ref={containerRef}
+  className="relative w-full py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-black overflow-hidden"
+>
+  <div className="max-w-4xl mx-auto">
+    {/* Section Title */}
+    <div ref={titleRef} className="mb-12 md:mb-16">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 text-center text-balance">
+        Frequently Asked Questions
+      </h2>
+      <p className="text-sm sm:text-base md:text-lg text-gray-400 text-center max-w-2xl mx-auto">
+        Find answers to common questions about our finance tracking platform and services.
+      </p>
+    </div>
 
-        {/* FAQ Items */}
-        <div className="space-y-3 sm:space-y-4 md:space-y-5">
-          {faqs.map((faq, index) => (
-            <div
-              key={faq.id}
-              ref={(el) => {
-                itemsRef.current[index] = el
-              }}
-              className="border border-gray-700 rounded-lg overflow-hidden bg-gray-900/30 hover:bg-gray-900/50 transition-colors"
+    {/* FAQ Items */}
+    <div className="space-y-3 sm:space-y-4 md:space-y-5">
+      {faqs.map((faq, index) => (
+        <div
+          key={faq.id}
+          ref={(el) => {
+            itemsRef.current[index] = el
+          }}
+          className="border border-gray-700 rounded-lg overflow-hidden bg-gray-900/30 hover:bg-gray-900/50 transition-colors"
+        >
+          <motion.button
+            onClick={() => setExpandedId(expandedId === faq.id ? null : faq.id)}
+            className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between gap-4 text-left hover:bg-gray-800/50 transition-colors"
+            whileHover={{ backgroundColor: "rgba(31, 41, 55, 0.3)" }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <span className="text-base sm:text-lg md:text-xl font-semibold text-white pr-4">
+              {faq.question}
+            </span>
+            <motion.div
+              animate={{ rotate: expandedId === faq.id ? 45 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex-shrink-0"
             >
-              <motion.button
-                onClick={() => setExpandedId(expandedId === faq.id ? null : faq.id)}
-                className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between gap-4 text-left hover:bg-gray-800/50 transition-colors"
-                whileHover={{ backgroundColor: "rgba(31, 41, 55, 0.3)" }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="text-base sm:text-lg md:text-xl font-semibold text-white pr-4">{faq.question}</span>
-                <motion.div
-                  animate={{ rotate: expandedId === faq.id ? 45 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex-shrink-0"
-                >
-                  <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
-                </motion.div>
-              </motion.button>
+              <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
+            </motion.div>
+          </motion.button>
 
-              {/* Answer */}
-              <AnimatePresence>
-                {expandedId === faq.id && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="border-t border-gray-700 overflow-hidden"
-                  >
-                    <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 bg-gray-800/20">
-                      <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">{faq.answer}</p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+          {/* Answer */}
+          <AnimatePresence>
+            {expandedId === faq.id && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="border-t border-gray-700 overflow-hidden"
+              >
+                <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 bg-gray-800/20">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+
+  {/* ✨ Thin Glossy Bottom Line */}
+  <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+</section>
+
   )
 }

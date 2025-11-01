@@ -2,14 +2,14 @@
 .roadmap-card {
   position: relative;
   overflow: hidden;
-  border-radius: 1rem; /* Adjust if you use rounded-xl / rounded-2xl in Tailwind */
+  border-radius: 1rem; /* Match Tailwind rounded-xl or rounded-2xl */
   background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   transition: border-color 0.3s ease;
 }
 
 .roadmap-card:hover {
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* 💫 Gloss effect wrapper */
@@ -21,20 +21,20 @@
   z-index: 3;
 }
 
-/* ✨ Glossy animated gradient */
+/* ✨ Glossy animated gradient (Fixed: no vertical edge glow) */
 .edge-glow::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 0.5px; /* thicker glossy border */
+  padding: 0.6px; /* glossy border thickness */
   background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.25) 25%,
-    rgba(255, 255, 255, 0.6) 50%,
-    rgba(255, 255, 255, 0.25) 75%,
-    rgba(255, 255, 255, 0.05) 100%
+    130deg,
+    rgba(255, 255, 255, 0) 0%,          /* transparent left */
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    rgba(255, 255, 255, 0) 100%         /* transparent right */
   );
   background-size: 300% 300%;
   mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
@@ -50,19 +50,19 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.04);
   pointer-events: none;
 }
 
-/* 🌀 Moving gloss animation */
+/* 🌀 Smooth Moving Gloss Animation */
 @keyframes moveGloss {
   0% {
-    background-position: 130% 0%;
+    background-position: 120% 0%;
   }
   50% {
-    background-position: 0% 130%;
+    background-position: 0% 120%;
   }
   100% {
-    background-position: 130% 0%;
+    background-position: 120% 0%;
   }
 }

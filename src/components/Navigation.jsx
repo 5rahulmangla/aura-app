@@ -75,6 +75,17 @@ export default function Navigation() {
         </div>
       </div>
 
+      {/* <div className="flex items-center gap-3">
+        <div className="w-10 h-10 flex items-center justify-center overflow-hidden">
+          <img
+            src="/aurafav.png"
+            alt="Logo"
+            className="w-full h-full object-cover rounded-full"
+          />
+        </div>
+      </div> */}
+
+
       {/* Desktop Navigation */}
       {!isMobile && (
         <div className="flex items-center gap-8">
