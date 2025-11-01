@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowDownUp, Wallet, Coins } from "lucide-react"
+import { ArrowDownUp, Coins, Wallet } from "lucide-react"
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
+import { useWallet } from "@solana/wallet-adapter-react"
 
 export default function SwapSection() {
   const [fromToken, setFromToken] = useState("SOL")
@@ -8,16 +10,32 @@ export default function SwapSection() {
   const [amount, setAmount] = useState("")
   const tokens = ["SOL", "USDC", "BONK", "RAY", "SRM"]
 
+  const { connected } = useWallet()
+
   return (
     <div className="relative px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-black/50 overflow-hidden">
-      {/* Section Container */}
       <div className="max-w-md mx-auto border border-white/20 rounded-2xl bg-black/40 backdrop-blur-md p-6 sm:p-8 shadow-lg hover:border-white/40 transition-all">
+
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-white">Swap</h2>
-          <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/20 bg-white/5 text-white/80 hover:bg-white/10 transition-all text-sm">
-            <Wallet className="w-4 h-4" /> Connect
-          </button>
+
+          {/* ✅ Wallet Connect Button */}
+          <div className="relative">
+            <WalletMultiButton
+              className="!bg-white/10 !text-white !rounded-lg !border !border-white/20 
+              hover:!bg-white/20 !transition-all !flex !items-center !gap-2 
+              !px-3 !py-1.5 !text-sm"
+            >
+              {/* Show only when NOT connected */}
+              {!connected && (
+                <>
+                 <span className="font-bold mx-1">Connect</span>
+                  <Wallet className="w-4 h-4" />
+                </>
+              )}
+            </WalletMultiButton>
+          </div>
         </div>
 
         {/* From Token */}
@@ -95,7 +113,7 @@ export default function SwapSection() {
         </motion.button>
       </div>
 
-      {/* Glossy horizontal line at end */}
+      {/* Glossy horizontal line */}
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
     </div>
   )

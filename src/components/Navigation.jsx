@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Wallet } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
-import "@solana/wallet-adapter-react-ui/styles.css" // ensure this line is included
-import "./wallet.css"; 
+import { useWallet } from "@solana/wallet-adapter-react"
+import "@solana/wallet-adapter-react-ui/styles.css"
+import "./wallet.css"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const { connected } = useWallet() // ✅ Detect if wallet is connected
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -75,17 +77,6 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* <div className="flex items-center gap-3">
-        <div className="w-10 h-10 flex items-center justify-center overflow-hidden">
-          <img
-            src="/aurafav.png"
-            alt="Logo"
-            className="w-full h-full object-cover rounded-full"
-          />
-        </div>
-      </div> */}
-
-
       {/* Desktop Navigation */}
       {!isMobile && (
         <div className="flex items-center gap-8">
@@ -108,27 +99,24 @@ export default function Navigation() {
         </div>
       )}
 
-      {/* Desktop Buttons */}
+      {/* ✅ Desktop Wallet Button */}
       {!isMobile && (
-                <div className="flex items-center gap-4">
-                <motion.div whileTap={{ scale: 0.95 }}>
-                    {/* <WalletMultiButton
-                    className="!px-6 !py-2 !rounded-full !bg-white !text-black hover:!bg-white/90 transition-colors !text-sm !font-medium !border-none"
-                    /> */}
-                    {/* <WalletMultiButton
-                    className="!px-6 !py-2 !rounded-full !bg-white !text-black hover:!bg-black hover:!text-white transition-colors !text-sm !font-medium !border-none"/> */}
-                    <WalletMultiButton className="wallet-adapter-button" />
-                </motion.div>
-
-                <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 py-4 rounded-full bg-white text-black hover:bg-white/90 transition-colors text-sm font-medium"
-                >
-                    Get started
-                </motion.button>
-                </div>
-
+        <div className="flex items-center gap-4">
+          <motion.div whileTap={{ scale: 0.95 }}>
+            <WalletMultiButton
+              className="!bg-white/10 !text-white !rounded-lg !border !border-white/20 
+                hover:!bg-white/20 !transition-all !flex !items-center !gap-2 
+                !px-3 !py-1.5 !text-sm"
+            >
+              {!connected && (
+                <>
+                  <span className="font-bold mx-1">Connect</span>
+                  <Wallet className="w-4 h-4" />
+                </>
+              )}
+            </WalletMultiButton>
+          </motion.div>
+        </div>
       )}
 
       {/* Mobile Menu Button */}
@@ -194,20 +182,21 @@ export default function Navigation() {
                 </motion.a>
               ))}
               <div className="flex flex-col gap-3 pt-4 border-t border-white/10">
-                {/* Solana Wallet Button (Mobile) */}
+                {/* ✅ Solana Wallet Button (Mobile) */}
                 <motion.div variants={menuItemVariants} whileTap={{ scale: 0.95 }}>
                   <WalletMultiButton
-                    className="!w-full !px-6 !py-2 !rounded-full !border !border-white/30 hover:!border-white transition-colors !text-sm !bg-transparent !text-white"
-                  />
+                    className="!w-full !px-6 !py-2 !rounded-lg !border !border-white/30 
+                      hover:!border-white !transition-all !flex !items-center !gap-2 
+                      !bg-transparent !text-white"
+                  >
+                    {!connected && (
+                      <>
+                        <span className="font-bold mx-1">Connect</span>
+                        <Wallet className="w-4 h-4" />
+                      </>
+                    )}
+                  </WalletMultiButton>
                 </motion.div>
-
-                <motion.button
-                  variants={menuItemVariants}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full px-6 py-2 rounded-full bg-white text-black hover:bg-white/90 transition-colors text-sm font-medium"
-                >
-                  Get started
-                </motion.button>
               </div>
             </div>
           </motion.div>
