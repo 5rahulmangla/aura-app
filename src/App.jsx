@@ -1,15 +1,7 @@
+import React, { useRef } from "react";
+import HomePage from "./components/HomePage";
 
-import './App.css'
-import HomePage from './components/HomePage';
-function App() {
-    
-
-
-  return (
-       <>
-       <HomePage />
-       </>
-  )
+export default function App() {
+  const homeRef = useRef(null);
+  return <HomePage ref={homeRef} />;
 }
-
-export default App

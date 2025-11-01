@@ -22,19 +22,19 @@ export default function Hero() {
 
   return (
     <div className="flex flex-col items-center justify-center pt-16 pb-24 px-4">
-      <h1 ref={headingRef} className="text-6xl md:text-7xl font-bold text-center mb-6 max-w-3xl">
-        Track your finance
+      <h1 ref={headingRef} className="text-4xl md:text-5xl font-bold text-center mb-6 max-w-3xl">
+        Power Your Financial Intelligence
       </h1>
       <p ref={subheadingRef} className="text-center text-white/70 max-w-2xl mb-8 text-lg">
-        We diligently track your every step to forecast your income for future years. We work with the best financial
-        experts.
+        Lubox tracks your assets, decodes market trends, and delivers real-time reports — built for the 402x ecosystem and powered by ERC-8004. It’s not just finance. It’s insight.
       </p>
+
       <div ref={buttonsRef} className="flex gap-4 justify-center">
-        <button className="px-8 py-3 rounded-full bg-white text-black hover:bg-white/90 transition-colors font-medium flex items-center gap-2">
+        <button className="px-6 py-3 rounded-full bg-white text-black hover:bg-white/90 transition-colors font-medium flex items-center gap-2">
           Get started
           <span>→</span>
         </button>
-        <button className="px-8 py-3 rounded-full border border-white/30 hover:border-white transition-colors font-medium flex items-center gap-2">
+        <button className="px-6 py-3 rounded-full border border-white/30 hover:border-white transition-colors font-medium flex items-center gap-2">
           Read more
           <span>→</span>
         </button>

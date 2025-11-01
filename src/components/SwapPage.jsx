@@ -224,7 +224,7 @@ export default function SwapSection() {
           text-white font-semibold tracking-wide 
           border border-white/10 transition-all"
         >
-          <Coins className="w-5 h-5" />
+          {/* <Coins className="w-5 h-5" /> */}
           Swap Now
         </motion.button>
 

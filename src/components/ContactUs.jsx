@@ -12,28 +12,24 @@ const ContactUs = () => {
         </div>
 
         {/* Header */}
-        <h2 className="text-2xl font-semibold mb-8 text-white/90">Contact Us</h2>
+       <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent tracking-wide">
+  Contact Us
+</h2>
+
 
         <div className="grid md:grid-cols-2 gap-10">
           {/* Left Info Section */}
-          <div className="space-y-6 text-white/80">
-            <div className="flex items-center gap-4">
-              <Mail className="w-5 h-5 text-white/70" />
-              <p>support@example.com</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <Phone className="w-5 h-5 text-white/70" />
-              <p>+91 9999 99999</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <MapPin className="w-5 h-5 text-white/70" />
-              <p>NewHampshire, DK, US</p>
-            </div>
-            <p className="text-white/60 mt-4 leading-relaxed">
-              Got questions, feedback, or collaboration ideas?  
-              We’d love to hear from you. Drop a message and we’ll get back within 24 hours.
-            </p>
-          </div>
+           <div className="text-center max-w-2xl mx-auto mb-10">
+  <p className="text-white/70 leading-relaxed text-lg sm:text-xl">
+    Got <span className="text-white font-semibold">questions</span>, 
+    <span className="text-white font-semibold"> feedback</span>, or 
+    <span className="text-white font-semibold"> collaboration ideas</span>?  
+    <br className="hidden sm:block" />
+    Drop us a message — we’ll get back to you shortly.
+  </p>
+</div>
+
+
 
           {/* Right Form */}
           <form className="space-y-5">

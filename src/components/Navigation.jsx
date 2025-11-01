@@ -1,35 +1,42 @@
-import { useState, useEffect } from "react"
-import { Menu, X, Wallet } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
-import { useWallet } from "@solana/wallet-adapter-react"
-import "@solana/wallet-adapter-react-ui/styles.css"
-import "./wallet.css"
+import { useState, useEffect } from "react";
+import { Menu, X, Wallet } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useWallet } from "@solana/wallet-adapter-react";
+import "@solana/wallet-adapter-react-ui/styles.css";
+import "./wallet.css";
 
-export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-  const { connected } = useWallet() // ✅ Detect if wallet is connected
+// ✅ Navigation Component
+export default function Navigation({ homeRef }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const { connected } = useWallet();
 
+  // ✅ Handle responsive mode
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (isOpen && !isMobile) {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  }, [isMobile, isOpen])
+  }, [isMobile, isOpen]);
 
+  // ✅ Navigation items with scroll targets
   const navItems = [
-    { label: "Company", href: "#" },
-    { label: "Calculator", href: "#" },
-    { label: "Team", href: "#" },
-    { label: "Info", href: "#" },
-  ]
+    { label: "Company", action: () => homeRef.current.scrollToHero() },
+    { label: "Swap", action: () => homeRef.current.scrollToSwap() },
+    { label: "Growth", action: () => homeRef.current.scrollToChart() },
+    { label: "Roadmap", action: () => homeRef.current.scrollToRoadmap() },
+    { label: "Faq", action: () => homeRef.current.scrollToFAQ() },
+    { label: "Contact", action: () => homeRef.current.scrollToContact() },
+    
+
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -38,7 +45,7 @@ export default function Navigation() {
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-  }
+  };
 
   const mobileMenuVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -52,7 +59,7 @@ export default function Navigation() {
       },
     },
     exit: { opacity: 0, y: -20, transition: { duration: 0.2 } },
-  }
+  };
 
   const menuItemVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -61,7 +68,7 @@ export default function Navigation() {
       x: 0,
       transition: { duration: 0.3 },
     },
-  }
+  };
 
   return (
     <motion.nav
@@ -70,31 +77,32 @@ export default function Navigation() {
       variants={containerVariants}
       className="flex items-center justify-between px-4 md:px-8 py-6 border-b border-white/10 relative z-50"
     >
-      {/* Logo */}
+      {/* ✅ Logo */}
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center">
           <div className="w-2 h-2 bg-white rounded-full" />
         </div>
+        <span className="text-white text-xl font-semibold tracking-wide">Lubox</span>
       </div>
 
-      {/* Desktop Navigation */}
+      {/* ✅ Desktop Navigation */}
       {!isMobile && (
         <div className="flex items-center gap-8">
           {navItems.map((item) => (
-            <motion.a
+            <motion.button
               key={item.label}
-              href={item.href}
+              onClick={item.action}
               whileHover={{ scale: 1.05 }}
               className="text-sm text-white/60 hover:text-white transition-colors"
             >
               {item.label === "Company" ? (
-                <button className="px-4 py-2 rounded-full border border-white/30 hover:border-white transition-colors">
+                <div className="px-4 py-2 rounded-full border border-white/30 hover:border-white transition-colors">
                   {item.label}
-                </button>
+                </div>
               ) : (
                 item.label
               )}
-            </motion.a>
+            </motion.button>
           ))}
         </div>
       )}
@@ -105,8 +113,8 @@ export default function Navigation() {
           <motion.div whileTap={{ scale: 0.95 }}>
             <WalletMultiButton
               className="!bg-white/10 !text-white !rounded-lg !border !border-white/20 
-                hover:!bg-white/20 !transition-all !flex !items-center !gap-2 
-                !px-3 !py-1.5 !text-sm"
+              hover:!bg-white/20 !transition-all !flex !items-center !gap-2 
+              !px-3 !py-1.5 !text-sm"
             >
               {!connected && (
                 <>
@@ -119,7 +127,7 @@ export default function Navigation() {
         </div>
       )}
 
-      {/* Mobile Menu Button */}
+      {/* ✅ Mobile Menu Button */}
       {isMobile && (
         <motion.button
           whileTap={{ scale: 0.95 }}
@@ -153,7 +161,7 @@ export default function Navigation() {
         </motion.button>
       )}
 
-      {/* Mobile Menu */}
+      {/* ✅ Mobile Menu */}
       <AnimatePresence>
         {isMobile && isOpen && (
           <motion.div
@@ -165,11 +173,13 @@ export default function Navigation() {
           >
             <div className="flex flex-col gap-4 px-4 py-6">
               {navItems.map((item) => (
-                <motion.a
+                <motion.button
                   key={item.label}
-                  href={item.href}
+                  onClick={() => {
+                    item.action();
+                    setIsOpen(false);
+                  }}
                   variants={menuItemVariants}
-                  onClick={() => setIsOpen(false)}
                   className="text-sm text-white/60 hover:text-white transition-colors"
                 >
                   {item.label === "Company" ? (
@@ -179,10 +189,11 @@ export default function Navigation() {
                   ) : (
                     item.label
                   )}
-                </motion.a>
+                </motion.button>
               ))}
+
+              {/* ✅ Wallet Button in Mobile Menu */}
               <div className="flex flex-col gap-3 pt-4 border-t border-white/10">
-                {/* ✅ Solana Wallet Button (Mobile) */}
                 <motion.div variants={menuItemVariants} whileTap={{ scale: 0.95 }}>
                   <WalletMultiButton
                     className="!w-full !px-6 !py-2 !rounded-lg !border !border-white/30 
@@ -203,5 +214,5 @@ export default function Navigation() {
         )}
       </AnimatePresence>
     </motion.nav>
-  )
+  );
 }

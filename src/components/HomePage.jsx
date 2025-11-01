@@ -1,26 +1,29 @@
-import { useEffect, useRef, useState } from 'react'
-import gsap from 'gsap';
-import Navigation from './Navigation';
-import Hero from './Hero';
-import Sphere from './Sphere';
-import StatsSection from './StatsSection';
-import FAQSection from './FAQSection';
-import MarqueeSection from './MarqueeSection';
-// import WalletInfo from './components/WalletInfo';
-// import WalletButton from './components/WalletButton';
-import Roadmap from './Roadmap';
-import ContactUs from './ContactUs';
-import RevenueChart from './RevenueChart';
-import DeveloperSection from './DeveloperSection';
-import IntegrationSection from './IntegrationSection';
-import SwapPage from './SwapPage';
-function HomePage() {
-    
-  const containerRef = useRef(null);
+import { useEffect, useRef, useImperativeHandle, forwardRef } from "react";
+import gsap from "gsap";
+import Navigation from "./Navigation";
+import Hero from "./Hero";
+import Sphere from "./Sphere";
+import StatsSection from "./StatsSection";
+import FAQSection from "./FAQSection";
+import MarqueeSection from "./MarqueeSection";
+import Roadmap from "./Roadmap";
+import ContactUs from "./ContactUs";
+import RevenueChart from "./RevenueChart";
+import IntegrationSection from "./IntegrationSection";
+import SwapPage from "./SwapPage";
+import Footer from "./Footer";
 
-    useEffect(() => {
+const HomePage = forwardRef((props, ref) => {
+  const heroRef = useRef(null);
+  const chartRef = useRef(null);
+  const contactRef = useRef(null);
+  const faqRef = useRef(null);
+  const roadmapRef = useRef(null);
+  const swapRef = useRef(null);
+
+  useEffect(() => {
     // Starfield animation
-    const stars = document.querySelectorAll(".star")
+    const stars = document.querySelectorAll(".star");
     stars.forEach((star, index) => {
       gsap.to(star, {
         opacity: gsap.utils.random(0.3, 1),
@@ -28,13 +31,25 @@ function HomePage() {
         delay: index * 0.05,
         repeat: -1,
         yoyo: true,
-      })
-    })
-  }, [])
+      });
+    });
+  }, []);
+
+  // ✅ Expose scroll methods to Navigation
+  useImperativeHandle(ref, () => ({
+    scrollToHero: () => heroRef.current?.scrollIntoView({ behavior: "smooth" }),
+    scrollToChart: () => chartRef.current?.scrollIntoView({ behavior: "smooth" }),
+    scrollToFAQ: () => faqRef.current?.scrollIntoView({ behavior: "smooth" }),
+    scrollToRoadmap: () => roadmapRef.current?.scrollIntoView({ behavior: "smooth" }),
+    scrollToSwap: () => swapRef.current?.scrollIntoView({ behavior: "smooth" }),
+
+    scrollToContact: () =>
+      contactRef.current?.scrollIntoView({ behavior: "smooth" }),
+  }));
 
   return (
-     <div ref={containerRef} className="min-h-screen bg-black text-white overflow-hidden relative">
-        {/* Starfield background */}
+    <div className="min-h-screen bg-black text-white overflow-hidden relative">
+      {/* Starfield */}
       <div className="fixed inset-0 pointer-events-none">
         {Array.from({ length: 100 }).map((_, i) => (
           <div
@@ -49,35 +64,38 @@ function HomePage() {
         ))}
       </div>
 
-            {/* Main content */}
       <div className="relative z-10">
-        <Navigation />
-        {/* <WalletInfo/>
-        <WalletButton/> */}
-        <Hero/>
-        <Sphere/>
-        {/* <DeveloperSection/> */}
-        <MarqueeSection/>
-        <IntegrationSection/>
-        <StatsSection/>
-        {/* <ColorGlowSphere/>
-        <RipplePulseSphere/>
-        <SwirlSphere/>
-        <WaveformSphere/> */}
-        <RevenueChart/>
-        <Roadmap/>
-        <FAQSection/> 
-         <SwapPage/>
-        <ContactUs/>
+        <Navigation homeRef={ref} />
+        <div ref={heroRef}>
+          <Hero />
+          <Sphere />
+        </div>
+        <MarqueeSection />
+        <IntegrationSection />
+        <div ref={chartRef}>
+          <StatsSection />
+          <RevenueChart />
+        </div>
+        <div ref={roadmapRef}>
+          <Roadmap />
+        </div>
+
+        <div ref={faqRef}>
+          <FAQSection />
+          </div>
         
-        {/* <Hero />
-        <Sphere />
-        <StatsSection /> */}
+        <div ref={swapRef}>
+          <SwapPage />
+        </div>
+
+        <div ref={contactRef}>
+          <ContactUs />
+        </div>
+      <Footer homeRef={ref} />
+
       </div>
-
-
     </div>
-  )
-}
+  );
+});
 
-export default HomePage
+export default HomePage;
