@@ -24,7 +24,7 @@
 }
 
 /* 🌙 Dropdown Container (Perfectly Centered) */
-.wallet-adapter-dropdown-list {
+/* .wallet-adapter-dropdown-list {
   position: absolute !important;
   top: calc(100% + 8px) !important;
   left: 40% !important;
@@ -42,10 +42,10 @@
   z-index: 99999 !important;
   overflow: visible !important;
   animation: dropdownFadeIn 0.2s ease forwards !important;
-}
+} */
 
 /* 💫 Smooth Animation */
-@keyframes dropdownFadeIn {
+/* @keyframes dropdownFadeIn {
   0% {
     opacity: 0;
     transform: translate(-50%, -5px);
@@ -54,10 +54,10 @@
     opacity: 1;
     transform: translate(-50%, 0);
   }
-}
+} */
 
 /* 🧩 Dropdown Items */
-.wallet-adapter-dropdown-list-item {
+/* .wallet-adapter-dropdown-list-item {
   color: rgba(255, 255, 255, 0.85) !important;
   background: rgba(255, 255, 255, 0.04) !important;
   padding: 0.55rem 1rem !important;
@@ -68,30 +68,30 @@
   text-align: center !important;
   transition: all 0.25s ease !important;
       width: 90%
-}
+} */
 
-.wallet-adapter-dropdown-list-item:hover {
+/* .wallet-adapter-dropdown-list-item:hover {
   background: rgba(255, 255, 255, 0.15) !important;
   color: #fff !important;
   transform: scale(1.03);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
-}
+} */
 
 /* 🔴 Disconnect Button Styling */
-.wallet-adapter-dropdown-list-item:last-child {
+/* .wallet-adapter-dropdown-list-item:last-child {
   background: rgba(255, 0, 72, 0.08) !important;
   color: #ff4f6a !important;
 }
 .wallet-adapter-dropdown-list-item:last-child:hover {
   background: rgba(255, 0, 72, 0.2) !important;
   color: #ff7a8a !important;
-}
+} */
 
 /* ✅ Prevent clipping or overflow */
-.wallet-adapter-dropdown,
+/* .wallet-adapter-dropdown,
 .wallet-adapter-button-wrapper,
 .wallet-adapter-dropdown-container {
   overflow: visible !important;
   position: relative !important;
   z-index: 9999 !important;
-}
+} */
