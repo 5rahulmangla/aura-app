@@ -31,6 +31,8 @@ export default function Roadmap() {
 
   return (
     <div className="relative px-4 sm:px-6 lg:px-8 py-12 bg-black/50 overflow-hidden">
+            {/* ✨ Bottom Glossy Line */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
       {/* Section Header */}
       <div className="max-w-5xl mx-auto text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">

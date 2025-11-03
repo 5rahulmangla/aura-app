@@ -78,12 +78,25 @@ export default function Navigation({ homeRef }) {
       className="flex items-center justify-between px-4 md:px-8 py-6 border-b border-white/10 relative z-50"
     >
       {/* ✅ Logo */}
-      <div className="flex items-center gap-3">
+      {/* <div className="flex items-center gap-3">
         <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center">
           <div className="w-2 h-2 bg-white rounded-full" />
         </div>
         <span className="text-white text-xl font-semibold tracking-wide">Lubox</span>
-      </div>
+      </div> */}
+
+<div className="flex items-center gap-0">
+  <img
+    src="/luboxFinal.png"
+    alt="Lubox Logo"
+    className=" mt-3 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(0,200,255,0.5)]"
+  />
+  <span className="text-white text-lg md:text-xl font-semibold tracking-wide">
+    Lubox
+  </span>
+</div>
+
+
 
       {/* ✅ Desktop Navigation */}
       {!isMobile && (

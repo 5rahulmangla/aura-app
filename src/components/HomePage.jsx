@@ -12,6 +12,9 @@ import RevenueChart from "./RevenueChart";
 import IntegrationSection from "./IntegrationSection";
 import SwapPage from "./SwapPage";
 import Footer from "./Footer";
+import X402IntegrationSnippets from "./X402IntegrationSnippets";
+import HostedPaymentWidget from "./HostedPaymentWidget";
+import CategoryPieChart from "./CategoryPieChart";
 
 const HomePage = forwardRef((props, ref) => {
   const heroRef = useRef(null);
@@ -70,11 +73,15 @@ const HomePage = forwardRef((props, ref) => {
           <Hero />
           <Sphere />
         </div>
+      
         <MarqueeSection />
-        <IntegrationSection />
         <div ref={chartRef}>
           <StatsSection />
           <RevenueChart />
+            <CategoryPieChart/>
+          <IntegrationSection />
+         <X402IntegrationSnippets />
+          <HostedPaymentWidget/>
         </div>
         <div ref={roadmapRef}>
           <Roadmap />
