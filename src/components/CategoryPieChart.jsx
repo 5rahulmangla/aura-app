@@ -170,7 +170,7 @@ export default function CategoryPieChart() {
 
         {/* Category Trends */}
         <div className="w-full md:w-1/2">
-          <h3 className="text-lg font-semibold text-white mb-3">Category Trends</h3>
+          <h3 className="text-lg font-semibold text-white mb-3">Category Alloction</h3>
           <div className="space-y-3">
             {data.map((entry, index) => (
               <div

@@ -85,16 +85,19 @@ export default function Navigation({ homeRef }) {
         <span className="text-white text-xl font-semibold tracking-wide">Lubox</span>
       </div> */}
 
-<div className="flex items-center gap-0">
-  <img
-    src="/luboxFinal.png"
-    alt="Lubox Logo"
-    className=" mt-3 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(0,200,255,0.5)]"
-  />
-  <span className="text-white text-lg md:text-xl font-semibold tracking-wide">
-    Lubox
-  </span>
-</div>
+        <div className="flex items-center gap-0 mb-4 group">
+          <img
+            src="/luboxFinal.png"
+            alt="Lubox Logo"
+            className="mt-3 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
+                      drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]
+                      group-hover:drop-shadow-[0_0_12px_rgba(180,0,255,0.8)]
+                      group-hover:scale-110"
+          />
+          <span className="text-white font-semibold text-lg group-hover:text-[#b400ff] transition-colors duration-500">
+            Lubox
+          </span>
+        </div>
 
 
 
