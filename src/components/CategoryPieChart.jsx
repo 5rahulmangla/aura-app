@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
-import gsap from "gsap";
 
 export default function CategoryPieChart() {
   const [timeframe, setTimeframe] = useState("weekly");
   const [data, setData] = useState([]);
-  const chartRef = useRef(null);
-  const headingRef = useRef(null);
-  const subheadingRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [chartKey, setChartKey] = useState(0); // 👈 used to force re-render animation
+  const sectionRef = useRef(null);
 
   const COLORS = ["#60A5FA", "#F87171", "#FACC15", "#34D399", "#A78BFA"];
 
@@ -43,55 +42,42 @@ export default function CategoryPieChart() {
     { name: "DeFi", weekly: "+4%", monthly: "+5%", yearly: "+9%" },
   ];
 
+  // Observe visibility of section
   useEffect(() => {
-    setData(chartData.weekly);
-
-    // Heading & Subheading animation
-    gsap.fromTo(
-      [headingRef.current, subheadingRef.current],
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }
-    );
-
-    // Chart initial fade-in
-    gsap.fromTo(
-      chartRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
-    );
-  }, []);
-
-  useEffect(() => {
-    gsap.to(chartRef.current, {
-      opacity: 0,
-      scale: 0.9,
-      duration: 0.3,
-      onComplete: () => {
-        setData(chartData[timeframe]);
-        gsap.fromTo(
-          chartRef.current,
-          { opacity: 0, scale: 0.9 },
-          { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }
-        );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          setData(chartData[timeframe]);
+          setChartKey((prev) => prev + 1); // 👈 trigger chart re-render
+        }
       },
-    });
+      { threshold: 0.4 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, [timeframe]);
 
-  return (
-    <div className="max-w-5xl mx-auto p-8 flex flex-col gap-10 bg-gradient-to-br from-black/80 to-gray-900 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
+  // Restart animation on timeframe switch
+  useEffect(() => {
+    if (isVisible) {
+      setData(chartData[timeframe]);
+      setChartKey((prev) => prev + 1); // 👈 new key = new animation
+    }
+  }, [timeframe, isVisible]);
 
-      {/* Animated Heading + Subheading */}
+  return (
+    <div
+      ref={sectionRef}
+      className="max-w-5xl mx-auto p-8 flex flex-col gap-10 bg-gradient-to-br from-black/80 to-gray-900 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
+    >
+      {/* Heading + Subheading */}
       <div className="text-center">
-        <h1
-          ref={headingRef}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center text-white mb-3"
-        >
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3">
           Your Allocation vs Market Trends
         </h1>
-        <p
-          ref={subheadingRef}
-          className="text-white/70 text-sm sm:text-base mb-6 text-center max-w-xl mx-auto"
-        >
+        <p className="text-white/70 text-sm sm:text-base mb-6 text-center max-w-xl mx-auto">
           Analyze how your portfolio stacks up against evolving market narratives.
         </p>
       </div>
@@ -119,58 +105,58 @@ export default function CategoryPieChart() {
       {/* Row: Pie Chart + Category Trends */}
       <div className="flex flex-col md:flex-row justify-between gap-8 w-full">
         {/* Pie Chart */}
-        <div
-          ref={chartRef}
-          className="w-full md:w-1/2 h-80 flex items-center justify-center transition-all"
-        >
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={data}
-                cx="50%"
-                cy="50%"
-                outerRadius={110}
-                innerRadius={70}
-                dataKey="value"
-                animationBegin={0}
-                animationDuration={800}
-                animationEasing="ease-out"
-              >
-                {data.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                    stroke="rgba(255,255,255,0.2)"
-                  />
-                ))}
-              </Pie>
-
-              {/* Tooltip */}
-              <Tooltip
-                contentStyle={{
-                  background: "rgba(20, 20, 20, 0.95)",
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  borderRadius: "8px",
-                  color: "#fff",
-                  boxShadow: "0 0 12px rgba(0,0,0,0.4)",
-                  backdropFilter: "blur(6px)",
-                }}
-                itemStyle={{
-                  color: "#fff",
-                  fontWeight: "500",
-                }}
-                labelStyle={{
-                  color: "#fff",
-                  fontWeight: "600",
-                }}
-              />
-            </PieChart>
-          </ResponsiveContainer>
+        <div className="w-full md:w-1/2 h-80 flex items-center justify-center">
+          {isVisible && (
+            <ResponsiveContainer key={chartKey} width="100%" height="100%">
+              {/* 👆 the key ensures a full re-render (animation restart) */}
+              <PieChart>
+                <Pie
+                  data={data}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={110}
+                  innerRadius={70}
+                  dataKey="value"
+                  animationBegin={0}
+                  animationDuration={900}
+                  animationEasing="ease-out"
+                >
+                  {data.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                      stroke="rgba(255,255,255,0.2)"
+                    />
+                  ))}
+                </Pie>
+                <Tooltip
+                  contentStyle={{
+                    background: "rgba(20, 20, 20, 0.95)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    borderRadius: "8px",
+                    color: "#fff",
+                    boxShadow: "0 0 12px rgba(0,0,0,0.4)",
+                    backdropFilter: "blur(6px)",
+                  }}
+                  itemStyle={{
+                    color: "#fff",
+                    fontWeight: "500",
+                  }}
+                  labelStyle={{
+                    color: "#fff",
+                    fontWeight: "600",
+                  }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          )}
         </div>
 
         {/* Category Trends */}
         <div className="w-full md:w-1/2">
-          <h3 className="text-lg font-semibold text-white mb-3">Category Alloction</h3>
+          <h3 className="text-lg font-semibold text-white mb-3">
+            Category Allocation
+          </h3>
           <div className="space-y-3">
             {data.map((entry, index) => (
               <div
@@ -213,13 +199,25 @@ export default function CategoryPieChart() {
               }`}
             >
               <div>{cat.name}</div>
-              <div className={`${cat.weekly.includes("-") ? "text-red-400" : "text-green-400"}`}>
+              <div
+                className={`${
+                  cat.weekly.includes("-") ? "text-red-400" : "text-green-400"
+                }`}
+              >
                 {cat.weekly}
               </div>
-              <div className={`${cat.monthly.includes("-") ? "text-red-400" : "text-green-400"}`}>
+              <div
+                className={`${
+                  cat.monthly.includes("-") ? "text-red-400" : "text-green-400"
+                }`}
+              >
                 {cat.monthly}
               </div>
-              <div className={`${cat.yearly.includes("-") ? "text-red-400" : "text-green-400"}`}>
+              <div
+                className={`${
+                  cat.yearly.includes("-") ? "text-red-400" : "text-green-400"
+                }`}
+              >
                 {cat.yearly}
               </div>
             </div>
