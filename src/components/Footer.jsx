@@ -18,7 +18,7 @@ export default function Footer({ homeRef }) {
           
           <div className="flex items-center gap-0 mb-4 group">
             <img
-              src="/luboxFinal.png"
+              src="/freshLubox.png"
               alt="Lubox Logo"
               className="mt-3 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
                         drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]
