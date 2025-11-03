@@ -15,19 +15,20 @@ export default function Footer({ homeRef }) {
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm">
         {/* Logo + Tagline */}
         <div>
-<div className="flex items-center gap-0 mb-4 group">
-  <img
-    src="/luboxFinal.png"
-    alt="Lubox Logo"
-    className="mt-3 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
-               drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]
-               group-hover:drop-shadow-[0_0_12px_rgba(180,0,255,0.8)]
-               group-hover:scale-110"
-  />
-  <span className="text-white font-semibold text-lg group-hover:text-[#b400ff] transition-colors duration-500">
-    Lubox
-  </span>
-</div>
+          
+          <div className="flex items-center gap-0 mb-4 group">
+            <img
+              src="/luboxFinal.png"
+              alt="Lubox Logo"
+              className="mt-3 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
+                        drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]
+                        group-hover:drop-shadow-[0_0_12px_rgba(180,0,255,0.8)]
+                        group-hover:scale-110 animate-pulse"
+            />
+            <span className="text-white font-semibold text-lg group-hover:text-[#b400ff] transition-colors duration-500">
+              Lubox
+            </span>
+          </div>
 
           <p className="text-white/50">
             Powering financial intelligence across the 402x ecosystem. Built on ERC-8004.
