@@ -5,26 +5,47 @@ import "./roadmap.css"
 
 const roadmapSteps = [
   {
-    title: "Phase 1 — Launch",
+    title: "Phase 1 — Foundation & Team Formation",
     description:
-      "Project kickoff, community formation, and initial token launch on Solana.",
+      "Assemble the core team, define project vision, finalize tokenomics, and set up the Solana + x402 development environment."
   },
   {
-    title: "Phase 2 — Development",
+    title: "Phase 2 — Smart Contract & API Integration",
     description:
-      "Building core dApp features, wallet integration, and ecosystem setup.",
+      "Develop and deploy SPL token contracts, integrate x402 APIs for payments and swaps, and establish secure backend infrastructure."
   },
   {
-    title: "Phase 3 — Expansion",
+    title: "Phase 3 — Core dApp Development",
     description:
-      "Marketing campaigns, NFT collaborations, and DAO governance rollout.",
+ "Architect the core application structure, craft dynamic UI elements, and integrate smooth wallet interactions with reliable transaction handling."
   },
   {
-    title: "Phase 4 — Global Growth",
+    title: "Phase 4 — Secure Transactions & Asset Tracking",
     description:
-      "Scaling partnerships, cross-chain integration, and community expansion.",
+      "Add encrypted send/receive token modules, enable transaction validation via x402, and display real-time asset data with performance analytics."
   },
+  {
+    title: "Phase 5 — Token Launch & Liquidity Setup",
+    description:
+      "Deploy token on Solana mainnet, initialize liquidity pools on DEXs like Raydium or Jupiter, conduct audits, and airdrop to early users."
+  },
+  {
+    title: "Phase 6 — Ecosystem Expansion",
+    description:
+      "Introduce rewards, referral systems, and API integrations while optimizing backend APIs and enhancing dApp performance."
+  },
+  {
+    title: "Phase 7 — DAO & Governance",
+    description:
+      "Launch DAO voting system, establish community-driven proposals, and expand into cross-chain integration for broader accessibility."
+  },
+  {
+    title: "Phase 8 — Global Growth & Sustainability",
+    description:
+      "Scale partnerships, launch marketing campaigns, grow community presence, and ensure long-term ecosystem stability through ongoing audits and updates."
+  }
 ]
+
 
 export default function Roadmap() {
   const containerRef = useRef(null)

@@ -26,8 +26,7 @@ export default function Hero() {
         Power Your Financial Intelligence
       </h1>
       <p ref={subheadingRef} className="text-center text-white/70 max-w-2xl mb-8 text-lg">
-        Lubox tracks your assets, decodes market trends, and delivers real-time reports — built for the 402x ecosystem and powered by ERC-8004. It’s not just finance. It’s insight.
-      </p>
+Lubox is your all-in-one crypto command center — built on the advanced x402 tech stack Track, manage, compare, send, and swap assets seamlessly in one unified dashboard. It’s not just finance. It’s precision insight.      </p>
 
       <div ref={buttonsRef} className="flex gap-4 justify-center">
         <button className="px-6 py-3 rounded-full bg-white text-black hover:bg-white/90 transition-colors font-medium flex items-center gap-2">

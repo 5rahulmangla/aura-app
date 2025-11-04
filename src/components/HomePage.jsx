@@ -83,17 +83,20 @@ const HomePage = forwardRef((props, ref) => {
          <X402IntegrationSnippets />
           <HostedPaymentWidget/>
         </div>
+                
+        <div ref={swapRef}>
+          <SwapPage />
+        </div>
+
         <div ref={roadmapRef}>
           <Roadmap />
         </div>
 
+
         <div ref={faqRef}>
           <FAQSection />
           </div>
-        
-        <div ref={swapRef}>
-          <SwapPage />
-        </div>
+
 
         <div ref={contactRef}>
           <ContactUs />

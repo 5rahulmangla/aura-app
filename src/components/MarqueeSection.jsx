@@ -48,6 +48,7 @@ export default function MarqueeSection() {
           ))}
         </div>
       </div>
+             <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
     </section>
   )
 }

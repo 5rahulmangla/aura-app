@@ -10,51 +10,74 @@ gsap.registerPlugin(ScrollTrigger)
 const faqs = [
   {
     id: 1,
-    question: "How does your finance tracking system work?",
+    question: "What is 402x?",
     answer:
-      "Our platform uses advanced algorithms to monitor your spending patterns, income sources, and investment portfolios in real-time. We provide insights and recommendations to help you optimize your financial decisions.",
+      "402x is a next-generation payment protocol built on Solana, designed for ultra-fast and low-cost blockchain transactions. It powers instant swaps, secure transfers, and on-chain asset management within our platform."
   },
   {
     id: 2,
-    question: "Is my financial data secure?",
+    question: "What is Lubox?",
     answer:
-      "Yes, we use bank-level encryption (AES-256) and comply with all international security standards including PCI-DSS and SOC 2. Your data is protected with multi-factor authentication and never shared with third parties.",
-  },
+"Lubox is a next-generation Web3 finance platform powered by the 402x protocol. It enables users to swap, send, and manage digital assets instantly through seamlessly integrated backend APIs and cutting-edge security."  },
   {
     id: 3,
-    question: "What payment methods do you accept?",
+    question: "How does Lubox work?",
     answer:
-      "We accept all major credit cards, debit cards, bank transfers, and digital wallets including PayPal, Apple Pay, and Google Pay. All transactions are processed securely through encrypted channels.",
+      "Lubox connects directly to the Solana blockchain and 402x API to execute ultra-fast swaps, track assets in real time, and allow secure token transfers via encrypted links—all in a non-custodial environment."
   },
   {
     id: 4,
-    question: "Can I export my financial reports?",
+    question: "How do Swap Rewards work?",
     answer:
-      "You can export your financial data in multiple formats including PDF, CSV, and Excel. Reports can be customized by date range and include detailed breakdowns of all transactions.",
+      "Every swap performed on Lubox earns users reward points based on trade volume. These points can be redeemed for token bonuses, fee discounts, or exclusive ecosystem perks."
   },
   {
     id: 5,
-    question: "Do you offer customer support?",
+    question: "What is the Early HODLers Reward System?",
     answer:
-      "Yes, we provide 24/7 customer support through multiple channels including live chat, email, and phone. Our average response time is under 5 minutes for urgent issues.",
+      "Early community members who hold $LUBOX tokens for longer durations receive tier-based rewards, including staking multipliers, NFT airdrops, and early access to future ecosystem utilities."
   },
   {
     id: 6,
-    question: "What integrations are available?",
+    question: "How does the Secure Link transfer feature work?",
     answer:
-      "We integrate with 500+ financial institutions, including banks, investment platforms, and accounting software. We support connections to popular tools like QuickBooks, Xero, and most major cryptocurrency exchanges.",
+      "The Secure Link feature allows users to send and receive tokens safely via encrypted one-time links powered by the 402x protocol—eliminating address errors and ensuring privacy."
   },
   {
     id: 7,
-    question: "Is there a free trial available?",
+    question: "Is my wallet and transaction data secure?",
     answer:
-      "Yes! We offer a 30-day free trial with full access to all features. No credit card required to get started. After the trial, choose from our flexible pricing plans based on your needs.",
+      "Yes. Lubox uses AES-256 encryption, TLS protocols, and a non-custodial wallet system. Your funds stay in your wallet—Lubox never stores your private keys."
   },
   {
     id: 8,
-    question: "How accurate are the financial forecasts?",
+    question: "What can I do with the dApp?",
     answer:
-      "Our AI-powered forecasting system has a 94% accuracy rate based on historical data analysis. We use machine learning models trained on millions of financial transactions to provide reliable predictions.",
+      "Users can connect their Solana wallets, perform instant swaps, view live portfolio analytics, send tokens securely, and earn rewards for participation and holding."
+  },
+  {
+    id: 9,
+    question: "What is the roadmap for upcoming features?",
+    answer:
+      "Future updates include cross-chain bridge integration, AI-based asset tracking, DAO voting system, and expanded utility for $LUBOX token holders."
+  },
+  {
+    id: 10,
+    question: "Will the platform have staking and yield farming?",
+    answer:
+      "Yes. Lubox will soon introduce staking and liquidity pool features, allowing users to earn passive income while supporting ecosystem liquidity."
+  },
+  {
+    id: 11,
+    question: "How can developers integrate the 402x API?",
+    answer:
+      "Developers can integrate 402x via REST and Web3 APIs for payment processing, wallet authentication, and smart contract automation. A full SDK and documentation will be provided."
+  },
+  {
+    id: 12,
+    question: "How does the referral and loyalty system work?",
+    answer:
+      "Invite friends using your unique referral code to earn rewards. Each referral unlocks points that can be converted into $LUBOX tokens, NFT drops, or fee discounts."
   },
 ]
 

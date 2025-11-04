@@ -58,7 +58,7 @@ export default function Footer({ homeRef }) {
           <ul className="space-y-2">
             <li className="flex items-center gap-2 hover:text-white">
               <X size={16} />{" "}
-              <a href="https://twitter.com" target="_blank" rel="noreferrer">
+              <a href="https://x.com/luboxfinance" target="_blank" rel="noreferrer">
                 Twitter
               </a>
             </li>
@@ -70,6 +70,22 @@ export default function Footer({ homeRef }) {
               <ShieldCheck size={16} />{" "}
               <a href="#terms">Terms of Use</a>
             </li>
+
+            <li className="flex items-center gap-2 hover:text-white">
+  <img
+    src="./pump.png"   // 🔹 your custom image path
+    alt="Buy Icon"
+    className="w-5 h-5 object-contain"
+  />
+  <a
+    href="https://x.com/luboxfinance"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Buy Now
+  </a>
+</li>
+
           </ul>
         </div>
       </div>
