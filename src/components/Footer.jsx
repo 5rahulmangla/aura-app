@@ -78,7 +78,7 @@ export default function Footer({ homeRef }) {
     className="w-5 h-5 object-contain"
   />
   <a
-    href="https://x.com/luboxfinance"
+    href="https://pump.fun/coin/9K8ZcCcZwHgRQyJiKY8eFGfHMGFUtAexSjtYJdAwpump"
     target="_blank"
     rel="noreferrer"
   >
