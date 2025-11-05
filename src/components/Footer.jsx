@@ -72,19 +72,34 @@ export default function Footer({ homeRef }) {
             </li>
 
             <li className="flex items-center gap-2 hover:text-white">
-  <img
-    src="./pump.png"   // 🔹 your custom image path
-    alt="Buy Icon"
-    className="w-5 h-5 object-contain"
-  />
-  <a
-    href="https://pump.fun/coin/9K8ZcCcZwHgRQyJiKY8eFGfHMGFUtAexSjtYJdAwpump"
-    target="_blank"
-    rel="noreferrer"
-  >
-    Buy Now
-  </a>
-</li>
+              <img
+                src="./github.png"   // 🔹 your custom image path
+                alt="github Icon"
+                className="w-4 h-4 object-contain"
+              />
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+              GitHub
+              </a>
+            </li>
+
+            <li className="flex items-center gap-2 hover:text-white">
+              <img
+                src="./pump.png"   // 🔹 your custom image path
+                alt="Buy Icon"
+                className="w-4 h-4 object-contain"
+              />
+              <a
+                href="https://pump.fun/coin/9K8ZcCcZwHgRQyJiKY8eFGfHMGFUtAexSjtYJdAwpump"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Buy Now
+              </a>
+            </li>
 
           </ul>
         </div>

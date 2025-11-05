@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
+import { gsap } from "gsap";
 
 export default function CategoryPieChart() {
   const [timeframe, setTimeframe] = useState("weekly");
   const [data, setData] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
-  const [chartKey, setChartKey] = useState(0); // 👈 used to force re-render animation
+  const [chartKey, setChartKey] = useState(0);
   const sectionRef = useRef(null);
+  const chartRef = useRef(null);
+  const listRef = useRef(null);
 
   const COLORS = ["#60A5FA", "#F87171", "#FACC15", "#34D399", "#A78BFA"];
 
@@ -42,14 +45,14 @@ export default function CategoryPieChart() {
     { name: "DeFi", weekly: "+4%", monthly: "+5%", yearly: "+9%" },
   ];
 
-  // Observe visibility of section
+  // 👀 Observe visibility of section
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
           setData(chartData[timeframe]);
-          setChartKey((prev) => prev + 1); // 👈 trigger chart re-render
+          setChartKey((prev) => prev + 1);
         }
       },
       { threshold: 0.4 }
@@ -59,26 +62,48 @@ export default function CategoryPieChart() {
     return () => observer.disconnect();
   }, [timeframe]);
 
-  // Restart animation on timeframe switch
+  // 👇 Run GSAP animations when visible or timeframe changes
   useEffect(() => {
     if (isVisible) {
       setData(chartData[timeframe]);
-      setChartKey((prev) => prev + 1); // 👈 new key = new animation
+      setChartKey((prev) => prev + 1);
+
+      // fade in chart
+      gsap.fromTo(
+        chartRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+      );
+
+      // fade in each list item with slight stagger
+      gsap.fromTo(
+        listRef.current.querySelectorAll(".cat-item"),
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: "power2.out",
+          delay: 0.2,
+        }
+      );
     }
   }, [timeframe, isVisible]);
 
   return (
     <div
       ref={sectionRef}
-      className="max-w-5xl mx-auto p-8 flex flex-col gap-10 bg-gradient-to-br from-black/80 to-gray-900 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
+      className="mt-12 max-w-5xl mx-auto p-8 flex flex-col gap-10 bg-gradient-to-br from-black/80 to-gray-900 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
     >
-      {/* Heading + Subheading */}
+      {/* Heading */}
       <div className="text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3">
           Your Allocation vs Market Trends
         </h1>
         <p className="text-white/70 text-sm sm:text-base mb-6 text-center max-w-xl mx-auto">
-          Analyze how your portfolio stacks up against evolving market narratives.
+          Analyze how your portfolio stacks up against evolving market
+          narratives.
         </p>
       </div>
 
@@ -102,13 +127,12 @@ export default function CategoryPieChart() {
         </div>
       </div>
 
-      {/* Row: Pie Chart + Category Trends */}
+      {/* Pie Chart + Category Trends */}
       <div className="flex flex-col md:flex-row justify-between gap-8 w-full">
         {/* Pie Chart */}
-        <div className="w-full md:w-1/2 h-80 flex items-center justify-center">
+        <div ref={chartRef} className="w-full md:w-1/2 h-80 flex items-center justify-center">
           {isVisible && (
             <ResponsiveContainer key={chartKey} width="100%" height="100%">
-              {/* 👆 the key ensures a full re-render (animation restart) */}
               <PieChart>
                 <Pie
                   data={data}
@@ -153,7 +177,7 @@ export default function CategoryPieChart() {
         </div>
 
         {/* Category Trends */}
-        <div className="w-full md:w-1/2">
+        <div ref={listRef} className="w-full md:w-1/2">
           <h3 className="text-lg font-semibold text-white mb-3">
             Category Allocation
           </h3>
@@ -161,14 +185,16 @@ export default function CategoryPieChart() {
             {data.map((entry, index) => (
               <div
                 key={entry.name}
-                className="flex items-center justify-between px-4 py-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition"
+                className="cat-item flex items-center justify-between px-4 py-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition"
               >
                 <div className="flex items-center gap-3">
                   <div
                     className="w-3 h-3 rounded-full"
                     style={{ backgroundColor: COLORS[index % COLORS.length] }}
                   ></div>
-                  <span className="text-white text-sm font-medium">{entry.name}</span>
+                  <span className="text-white text-sm font-medium">
+                    {entry.name}
+                  </span>
                 </div>
                 <span className="text-white/80 text-sm font-semibold">
                   {entry.value}%

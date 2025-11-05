@@ -10,20 +10,20 @@ gsap.registerPlugin(ScrollTrigger)
 const faqs = [
   {
     id: 1,
-    question: "What is 402x?",
-    answer:
-      "402x is a next-generation payment protocol built on Solana, designed for ultra-fast and low-cost blockchain transactions. It powers instant swaps, secure transfers, and on-chain asset management within our platform."
-  },
-  {
-    id: 2,
     question: "What is Lubox?",
     answer:
-"Lubox is a next-generation Web3 finance platform powered by the 402x protocol. It enables users to swap, send, and manage digital assets instantly through seamlessly integrated backend APIs and cutting-edge security."  },
+      "Lubox is a next-generation Web3 finance platform powered by the 402x protocol. It enables users to swap, send, and manage digital assets instantly through seamlessly integrated backend APIs and cutting-edge security."  },
   {
-    id: 3,
+    id: 2,  
     question: "How does Lubox work?",
     answer:
       "Lubox connects directly to the Solana blockchain and 402x API to execute ultra-fast swaps, track assets in real time, and allow secure token transfers via encrypted links—all in a non-custodial environment."
+  },
+  {
+    id: 3,
+    question: "What is 402x?",
+    answer:
+      "402x is a next-generation payment protocol built on Solana, designed for ultra-fast and low-cost blockchain transactions. It powers instant swaps, secure transfers, and on-chain asset management within our platform."
   },
   {
     id: 4,
