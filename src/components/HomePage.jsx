@@ -70,7 +70,7 @@ const HomePage = forwardRef((props, ref) => {
       <div className="relative z-10">
         <Navigation homeRef={ref} />
         <div ref={heroRef}>
-          <Hero />
+          <Hero scrollToChart={() => chartRef.current?.scrollIntoView({ behavior: "smooth" })}  />
           <Sphere />
         </div>
       
@@ -78,7 +78,7 @@ const HomePage = forwardRef((props, ref) => {
         <div ref={chartRef}>
           <StatsSection />
           <RevenueChart />
-            <CategoryPieChart/>
+          <CategoryPieChart/>
           <IntegrationSection />
          <X402IntegrationSnippets />
           <HostedPaymentWidget/>

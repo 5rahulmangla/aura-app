@@ -7,8 +7,12 @@ gsap.registerPlugin(ScrollTrigger)
 const stats = [
   { number: 2000, suffix: "+", label: "active users" },
   { number: 15, suffix: "+", label: "experience in the field" },
-  { number: 100, suffix: "+", label: "peoples in the team" },
-  { number: 10, suffix: "+", label: "billion saved" },
+   { number: 8, suffix: "+", label: "Analysts & Developers" },
+  { number: 98, suffix: "%", label: "Data Accuracy Rate" },
+  { number: 8, suffix: "K+", label: "Portfolios Synced" },
+  { number: 99, suffix: "%", label: "API Uptime" },
+   { number: 5, suffix: "+", label: "Ecosystem Integrations" },
+   { number: 50, suffix: "+", label: "AI Models & Signals" },
 ]
 
 export default function StatsSection() {
