@@ -18,7 +18,9 @@ export default function LandingPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#0a0010] to-[#1a001f] flex flex-col items-center justify-center text-center px-4">
+      
         <ParticleBackground />
+      
       {/* ✨ Subtle background grid */}
       <div className="absolute inset-0 opacity-[0.07]">
         <div
