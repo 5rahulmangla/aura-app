@@ -95,16 +95,25 @@ export default function LandingPage() {
           <div className="absolute inset-0 rounded-3xl pointer-events-none animate-borderSweep" />
 
           {/* Header */}
-          <div className="flex items-center justify-between mb-6 relative z-10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500" />
-              <h3 className="text-lg font-semibold text-white">Lubox</h3>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></div>
-              <span className="text-sm text-gray-400">Active</span>
-            </div>
-          </div>
+<div className="flex items-center justify-between mb-6 relative z-10">
+  <div className="flex items-center gap-3">
+    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center overflow-hidden">
+      <img
+        src="/soro-logo-wbg.png" // 🟢 replace with your actual logo path
+        alt="Soro Logo"
+        className="w-14 h-14 object-contain scale-110"
+      />
+    </div>
+    <h3 className="text-lg font-semibold text-white">Soro</h3>
+  </div>
+
+  <div className="flex items-center gap-2">
+    <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></div>
+    <span className="text-sm text-gray-400">Active</span>
+  </div>
+</div>
+
+
 
           {/* Stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 text-left relative z-10">

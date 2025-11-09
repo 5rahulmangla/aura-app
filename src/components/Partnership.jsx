@@ -3,14 +3,14 @@ import "../App.css";
 export default function Partnership() {
   const companies = [
     { name: "BNB", logo: "companies/bnb-chain-icon.png" },
-    { name: "Chat Gpt", logo: "companies/chatgpt-icon.png" },
     { name: "Metamask", logo: "companies/metamask-icon.png" },
     { name: "Ethereum", logo: "companies/ethereum-icon.png" },
-    { name: "Gemini", logo: "companies/gemini-icon.png" },
     { name: "Grafana", logo: "companies/grafana-icon.png" },
     { name: "Appkit", logo: "companies/appkit-icon.png" },
     { name: "Foundry", logo: "companies/foundry-icon.png" },
     { name: "Prometheus", logo: "companies/prometheus-icon.png" },
+    { name: "Chat Gpt", logo: "companies/chatgpt-icon.png" },
+    { name: "Gemini", logo: "companies/gemini-icon.png" },
   ];
 
     const technology = [
@@ -33,7 +33,7 @@ export default function Partnership() {
     <section className="relative py-20 overflow-hidden border-t border-slate-800/50">
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <h2 className="text-center text-white text-2xl font-semibold mb-2">
-          Trusted by 4,000+ Growing Companies
+          Trusted by 4,000+ Web3 Companies and Decentralized Technologies
         </h2>
       </div>
 
