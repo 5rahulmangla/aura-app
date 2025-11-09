@@ -38,7 +38,7 @@ export default function PinkSphere() {
   return (
     <div
       ref={containerRef}
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+      className="absolute left-1/2 top-[30%] sm:top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
     >
       {/* Wrapper for responsive scaling */}
       <div
