@@ -1,0 +1,114 @@
+@keyframes glowSweep {
+  0% {
+    background: radial-gradient(
+      circle at 0% 50%,
+      rgba(255, 0, 180, 0.4) 0%,
+      transparent 60%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 0, 180, 0.5) 0%,
+      transparent 60%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      circle at 100% 50%,
+      rgba(255, 0, 180, 0.4) 0%,
+      transparent 60%
+    );
+  }
+}
+
+@keyframes borderSweep {
+  0% {
+    box-shadow: inset 0 0 20px rgba(255, 0, 180, 0.3),
+      0 0 0 rgba(255, 0, 180, 0.3);
+  }
+  50% {
+    box-shadow: inset 0 0 60px rgba(255, 0, 180, 0.6),
+      0 0 40px rgba(255, 0, 180, 0.4);
+  }
+  100% {
+    box-shadow: inset 0 0 20px rgba(255, 0, 180, 0.3),
+      0 0 0 rgba(255, 0, 180, 0.3);
+  }
+}
+
+/* .animate-glowSweep {
+  animation: glowSweep 5s linear infinite alternate;
+  mix-blend-mode: screen;
+} */
+
+.animate-borderSweep {
+  animation: borderSweep 4s ease-in-out infinite alternate;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+
+@keyframes borderSweep {
+  0% { box-shadow: inset 0 0 40px rgba(255,0,200,0.1); }
+  50% { box-shadow: inset 0 0 60px rgba(255,0,200,0.25); }
+  100% { box-shadow: inset 0 0 40px rgba(255,0,200,0.1); }
+}
+
+.animate-borderSweep {
+  animation: borderSweep 4s ease-in-out infinite;
+}
+
+@keyframes borderSweep {
+  0% {
+    box-shadow: inset 0 0 0 0 rgba(255, 0, 180, 0.4);
+  }
+  50% {
+    box-shadow: inset 0 0 40px rgba(255, 0, 180, 0.3);
+  }
+  100% {
+    box-shadow: inset 0 0 0 0 rgba(255, 0, 180, 0.4);
+  }
+}
+
+@keyframes arcPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 180, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(255, 0, 220, 1));
+  }
+}
+
+.animate-borderSweep {
+  animation: borderSweep 4s ease-in-out infinite;
+}
+
+.animate-arcPulse {
+  animation: arcPulse 3s ease-in-out infinite;
+}
+
+
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255, 0, 200, 0.9), transparent 70%);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: floatParticle linear forwards;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-100px) scale(1);
+  }
+  100% {
+    transform: translateY(-250px) scale(0.7);
+    opacity: 0;
+  }
+}

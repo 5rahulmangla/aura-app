@@ -5,9 +5,11 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import "./wallet.css";
+import { useNavigate } from "react-router-dom";
 
 // ✅ Navigation Component
 export default function Navigation({ homeRef }) {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const { connected } = useWallet();
@@ -28,13 +30,13 @@ export default function Navigation({ homeRef }) {
 
   // ✅ Navigation items with scroll targets
   const navItems = [
-    { label: "Company", action: () => homeRef.current.scrollToHero() },
+    // { label: "Company", action: () => homeRef.current.scrollToHero() },
     { label: "Swap", action: () => homeRef.current.scrollToSwap() },
     { label: "Growth", action: () => homeRef.current.scrollToChart() },
     { label: "Roadmap", action: () => homeRef.current.scrollToRoadmap() },
     { label: "Faq", action: () => homeRef.current.scrollToFAQ() },
     { label: "Contact", action: () => homeRef.current.scrollToContact() },
-    
+    { label: "X402Payment", action: () => homeRef.current.scrollToContact() },
 
   ];
 
@@ -85,17 +87,17 @@ export default function Navigation({ homeRef }) {
         <span className="text-white text-xl font-semibold tracking-wide">Lubox</span>
       </div> */}
 
-<div className="flex items-center mb-0 group">
+<div  onClick={() => navigate("/")} className="flex items-center mb-0 group">
   <img
     src="/freshLubox.png"
-    alt="Lubox Logo"
+    alt="Soro Logo"
     className="mt-2 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
                drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]
                group-hover:drop-shadow-[0_0_12px_rgba(180,0,255,0.8)]
                group-hover:scale-110 animate-pulse"
   />
   <span className="text-white font-semibold text-lg group-hover:text-[#b400ff] transition-colors duration-500">
-    Lubox
+    Soro
   </span>
 </div>
 

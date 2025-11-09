@@ -15,6 +15,13 @@ import Footer from "./Footer";
 import X402IntegrationSnippets from "./X402IntegrationSnippets";
 import HostedPaymentWidget from "./HostedPaymentWidget";
 import CategoryPieChart from "./CategoryPieChart";
+import Partnership from "./Partnership";
+import LandingPage from "./LandingPage";
+import { ScrollTrigger } from "gsap/all";
+import PinkSphere from "./PinkSphere";
+
+
+// gsap.registerPlugin(ScrollTrigger);
 
 const HomePage = forwardRef((props, ref) => {
   const heroRef = useRef(null);
@@ -51,6 +58,8 @@ const HomePage = forwardRef((props, ref) => {
   }));
 
   return (
+    <>
+    {/* <LandingPage/> */}
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
       {/* Starfield */}
       <div className="fixed inset-0 pointer-events-none">
@@ -71,10 +80,12 @@ const HomePage = forwardRef((props, ref) => {
         <Navigation homeRef={ref} />
         <div ref={heroRef}>
           <Hero scrollToChart={() => chartRef.current?.scrollIntoView({ behavior: "smooth" })}  />
+         
           <Sphere />
         </div>
       
-        <MarqueeSection />
+        {/* <MarqueeSection /> */}
+        <Partnership/>
         <div ref={chartRef}>
           <StatsSection />
           <RevenueChart />
@@ -105,6 +116,7 @@ const HomePage = forwardRef((props, ref) => {
 
       </div>
     </div>
+    </>
   );
 });
 
