@@ -21,6 +21,7 @@ import { ScrollTrigger } from "gsap/all";
 import PinkSphere from "./PinkSphere";
 import { FeatureShowcase } from "./FeatureShowcase";
 import Analyze from "./Analyze";
+import Infrastructure from "./Infrastructure";
 
 
 // gsap.registerPlugin(ScrollTrigger);
@@ -94,6 +95,7 @@ const HomePage = forwardRef((props, ref) => {
           <RevenueChart />
           <CategoryPieChart/>
           <FeatureShowcase/>
+            <Infrastructure/>
           <IntegrationSection />
          <X402IntegrationSnippets />
           <HostedPaymentWidget/>
