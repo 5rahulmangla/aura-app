@@ -20,6 +20,7 @@ import LandingPage from "./LandingPage";
 import { ScrollTrigger } from "gsap/all";
 import PinkSphere from "./PinkSphere";
 import { FeatureShowcase } from "./FeatureShowcase";
+import Analyze from "./Analyze";
 
 
 // gsap.registerPlugin(ScrollTrigger);
@@ -87,6 +88,7 @@ const HomePage = forwardRef((props, ref) => {
       
         {/* <MarqueeSection /> */}
         <Partnership/>
+        <Analyze/>
         <div ref={chartRef}>
           <StatsSection />
           <RevenueChart />
