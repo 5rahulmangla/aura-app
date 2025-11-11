@@ -25,19 +25,19 @@ export default function Analyze() {
           </p>
 
           {/* CTA button */}
-          <button className="bg-[#bfff00] hover:bg-[#a8e600] text-black font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-[0_0_20px_rgba(191,255,0,0.3)] transition-all">
+          {/* <button className="bg-[#bfff00] hover:bg-[#a8e600] text-black font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-[0_0_20px_rgba(191,255,0,0.3)] transition-all">
             Join Waitlist
-          </button>
+          </button> */}
         </div>
 
         {/* Right Content - Repeated Video */}
         <div className="flex-1 relative flex items-center justify-center w-full lg:w-1/2">
-          <div className="relative w-[60%] h-80 flex items-center justify-center">
+          <div className="relative w-[70%] h-120 flex items-center justify-center">
             
             {/* Background glow effect */}
-            <div className="absolute inset-0 flex items-center justify-center">
+            {/* <div className="absolute inset-0 flex items-center justify-center">
               <div className="absolute w-64 h-64 bg-[#bfff00]/20 rounded-full blur-3xl opacity-40"></div>
-            </div>
+            </div> */}
 
             {/* Video */}
             <video
