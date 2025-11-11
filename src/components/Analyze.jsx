@@ -21,7 +21,7 @@ export default function Analyze() {
 
           {/* Subheading */}
           <p className="text-base md:text-lg text-gray-400 mb-8 leading-relaxed max-w-md mx-auto lg:mx-0">
-            Eon: Ozak AI's User-Facing Platform For Everyday Financial Intelligence
+            Soro User-Facing Platform For Everyday Financial Intelligence
           </p>
 
           {/* CTA button */}
