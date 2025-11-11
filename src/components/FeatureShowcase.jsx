@@ -37,7 +37,7 @@ export function FeatureShowcase() {
                     AI Powered Predictive Analytics
                   </h2>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    Ozak AI agents deliver real-time, AI-driven insights using models like neural networks,
+                    Soro agents deliver real-time, AI-driven insights using models like neural networks,
                     ARIMA, and linear regression to generate accurate market forecasts and risk assessments.
                   </p>
                 </div>

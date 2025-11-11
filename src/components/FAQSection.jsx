@@ -10,14 +10,14 @@ gsap.registerPlugin(ScrollTrigger)
 const faqs = [
   {
     id: 1,
-    question: "What is Lubox?",
+    question: "What is Soro?",
     answer:
-      "Lubox is a next-generation Web3 finance platform powered by the 402x protocol. It enables users to swap, send, and manage digital assets instantly through seamlessly integrated backend APIs and cutting-edge security."  },
+      "Soro is a next-generation Web3 finance platform powered by the 402x protocol. It enables users to swap, send, and manage digital assets instantly through seamlessly integrated backend APIs and cutting-edge security."  },
   {
     id: 2,  
-    question: "How does Lubox work?",
+    question: "How does Soro work?",
     answer:
-      "Lubox connects directly to the Solana blockchain and 402x API to execute ultra-fast swaps, track assets in real time, and allow secure token transfers via encrypted links—all in a non-custodial environment."
+      "Soro connects directly to the Solana blockchain and 402x API to execute ultra-fast swaps, track assets in real time, and allow secure token transfers via encrypted links—all in a non-custodial environment."
   },
   {
     id: 3,
@@ -29,13 +29,13 @@ const faqs = [
     id: 4,
     question: "How do Swap Rewards work?",
     answer:
-      "Every swap performed on Lubox earns users reward points based on trade volume. These points can be redeemed for token bonuses, fee discounts, or exclusive ecosystem perks."
+      "Every swap performed on Soro earns users reward points based on trade volume. These points can be redeemed for token bonuses, fee discounts, or exclusive ecosystem perks."
   },
   {
     id: 5,
     question: "What is the Early HODLers Reward System?",
     answer:
-      "Early community members who hold $LUBOX tokens for longer durations receive tier-based rewards, including staking multipliers, NFT airdrops, and early access to future ecosystem utilities."
+      "Early community members who hold $SORO tokens for longer durations receive tier-based rewards, including staking multipliers, NFT airdrops, and early access to future ecosystem utilities."
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ const faqs = [
     id: 7,
     question: "Is my wallet and transaction data secure?",
     answer:
-      "Yes. Lubox uses AES-256 encryption, TLS protocols, and a non-custodial wallet system. Your funds stay in your wallet—Lubox never stores your private keys."
+      "Yes. Soro uses AES-256 encryption, TLS protocols, and a non-custodial wallet system. Your funds stay in your wallet—Soro never stores your private keys."
   },
   {
     id: 8,
@@ -59,13 +59,13 @@ const faqs = [
     id: 9,
     question: "What is the roadmap for upcoming features?",
     answer:
-      "Future updates include cross-chain bridge integration, AI-based asset tracking, DAO voting system, and expanded utility for $LUBOX token holders."
+      "Future updates include cross-chain bridge integration, AI-based asset tracking, DAO voting system, and expanded utility for $SORO token holders."
   },
   {
     id: 10,
     question: "Will the platform have staking and yield farming?",
     answer:
-      "Yes. Lubox will soon introduce staking and liquidity pool features, allowing users to earn passive income while supporting ecosystem liquidity."
+      "Yes. Soro will soon introduce staking and liquidity pool features, allowing users to earn passive income while supporting ecosystem liquidity."
   },
   {
     id: 11,
@@ -77,7 +77,7 @@ const faqs = [
     id: 12,
     question: "How does the referral and loyalty system work?",
     answer:
-      "Invite friends using your unique referral code to earn rewards. Each referral unlocks points that can be converted into $LUBOX tokens, NFT drops, or fee discounts."
+      "Invite friends using your unique referral code to earn rewards. Each referral unlocks points that can be converted into $SORO tokens, NFT drops, or fee discounts."
   },
 ]
 

@@ -89,9 +89,9 @@ export default function Navigation({ homeRef }) {
 
 <div  onClick={() => navigate("/")} className="flex items-center mb-0 group">
   <img
-    src="/freshLubox.png"
+    src="/soro-logo-wbg.png"
     alt="Soro Logo"
-    className="mt-2 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
+    className="mt-1 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
                drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]
                group-hover:drop-shadow-[0_0_12px_rgba(180,0,255,0.8)]
                group-hover:scale-110 animate-pulse"

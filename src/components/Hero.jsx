@@ -60,7 +60,7 @@ const Hero = forwardRef((props, ref) => {
         ref={subheadingRef}
         className="text-center text-white/70 max-w-2xl mb-8 text-lg"
       >
-        Lubox is your all-in-one crypto command center — built on the advanced
+        Soro is your all-in-one crypto command center — built on the advanced
         x402 tech stack. Track, manage, compare, send, and swap assets seamlessly
         in one unified dashboard. It’s not just finance. It’s precision insight.
       </p>

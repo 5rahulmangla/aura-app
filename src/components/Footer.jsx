@@ -18,15 +18,15 @@ export default function Footer({ homeRef }) {
           
           <div className="flex items-center gap-0 mb-4 group">
             <img
-              src="/freshLubox.png"
-              alt="Lubox Logo"
-              className="mt-3 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
+              src="/soro-logo-wbg.png"
+              alt="Soro Logo"
+              className="mt-1 w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500
                         drop-shadow-[0_0_8px_rgba(0,200,255,0.5)]
                         group-hover:drop-shadow-[0_0_12px_rgba(180,0,255,0.8)]
                         group-hover:scale-110 animate-pulse"
             />
             <span className="text-white font-semibold text-lg group-hover:text-[#b400ff] transition-colors duration-500">
-              Lubox
+              Soro
             </span>
           </div>
 
@@ -58,7 +58,7 @@ export default function Footer({ homeRef }) {
           <ul className="space-y-2">
             <li className="flex items-center gap-2 hover:text-white">
               <X size={16} />{" "}
-              <a href="https://x.com/luboxfinance" target="_blank" rel="noreferrer">
+              <a href="https://x.com/soro_finance" target="_blank" rel="noreferrer">
                 Twitter
               </a>
             </li>
@@ -93,7 +93,7 @@ export default function Footer({ homeRef }) {
                 className="w-4 h-4 object-contain"
               />
               <a
-                href="https://pump.fun/coin/9K8ZcCcZwHgRQyJiKY8eFGfHMGFUtAexSjtYJdAwpump"
+                href="https://pump.fun/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -107,7 +107,7 @@ export default function Footer({ homeRef }) {
 
       {/* Bottom Line */}
       <div className="mt-10 text-center text-xs text-white/40">
-        © {new Date().getFullYear()} Lubox. All rights reserved.
+        © {new Date().getFullYear()} Soro. All rights reserved.
       </div>
     </footer>
   );
