@@ -32,7 +32,7 @@ export default function Analyze() {
 
         {/* Right Content - Repeated Video */}
         <div className="flex-1 relative flex items-center justify-center w-full lg:w-1/2">
-          <div className="relative w-[50%] h-80 flex items-center justify-center">
+          <div className="relative w-[60%] h-80 flex items-center justify-center">
             
             {/* Background glow effect */}
             <div className="absolute inset-0 flex items-center justify-center">
