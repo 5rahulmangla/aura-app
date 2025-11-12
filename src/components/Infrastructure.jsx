@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Star } from "lucide-react"
 
 export default function Infrastructure() {
   const [activeTab, setActiveTab] = useState("individuals")
@@ -77,30 +79,34 @@ export default function Infrastructure() {
   const activeCards = tabData[activeTab]
 
   return (
-    <div className="min-h-screen bg-background text-foreground dark">
-      <main className="mx-auto max-w-7xl px-6 py-12 md:py-16">
-        {/* Header Section */}
-        <div className="mb-12 grid gap-8 md:grid-cols-2 md:gap-16">
-          <div>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
-              Fast & Scalable
-              <br />
-              Infrastructure
-            </h1>
+    <section className="min-h-screen bg-background text-foreground overflow-hidden">
+      {/* ✨ Scroll Animation Container */}
+      <motion.main
+        className="mx-auto max-w-7xl px-6 py-12 md:py-16"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {/* 🔥 Header Section */}
+        <div className="text-center max-w-4xl mx-auto py-16 px-6">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-lime-500/10 px-4 py-2 text-sm font-medium text-lime-400">
+            <Star className="h-4 w-4" />
+            Features
           </div>
-          <div className="flex flex-col justify-start md:text-right">
-            <p className="text-sm text-muted-foreground">
-              Designed for trading desks, hedge funds, and fintech
-              <br />
-              platforms that need enterprise-grade AI, compliance,
-              <br />
-              and collaboration.
-            </p>
-          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-lime-200 to-lime-400 bg-clip-text text-transparent">
+            Fast & Scalable Infrastructure
+          </h1>
+
+          <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Designed for trading desks, hedge funds, and fintech platforms that need enterprise-grade AI,
+            compliance, and collaboration.
+          </p>
         </div>
 
-        {/* Tabs */}
-        <div className="mb-12 flex gap-4 flex-wrap">
+        {/* 🟢 Tabs */}
+        <div className="mb-12 flex gap-4 flex-wrap justify-center">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -116,30 +122,42 @@ export default function Infrastructure() {
           ))}
         </div>
 
-        {/* Features Grid */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {activeCards.map((card, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-background to-background/50 p-8 transition-all hover:border-lime-500/30 hover:shadow-lg hover:shadow-lime-500/10"
-            >
-              <div className="mb-4 h-16 flex items-center justify-center">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-              <h3 className="mb-3 text-lg font-semibold text-card-foreground">
-                {card.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {card.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+        {/* 🪄 Cards with Transition Animation */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            className="grid gap-6 md:grid-cols-3"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+          >
+            {activeCards.map((card, index) => (
+              <motion.div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-background to-background/50 p-8 transition-all hover:border-lime-500/30 hover:shadow-lg hover:shadow-lime-500/10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+              >
+                <div className="mb-4 h-16 flex items-center justify-center">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="h-12 w-auto object-contain"
+                  />
+                </div>
+                <h3 className="mb-3 text-lg font-semibold text-card-foreground">
+                  {card.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {card.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </motion.main>
+    </section>
   )
 }
