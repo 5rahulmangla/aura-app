@@ -34,7 +34,7 @@ export default function Analyze() {
   });
 
   return (
-    <main ref={ref} className="min-h-screen bg-black flex items-center justify-center overflow-hidden">
+    <main ref={ref} className="min-h-screen flex items-center justify-center overflow-hidden">
       <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-16 py-16 md:py-24">
 
         {/* Left Content */}
@@ -80,11 +80,8 @@ export default function Analyze() {
           <div className="relative w-[70%] h-120 flex items-center justify-center">
             {/* Background Glow */}
             <motion.div
-              className="absolute w-64 h-64 bg-[#bfff00]/20 rounded-full blur-3xl opacity-40"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.4, 0.7, 0.4],
-              }}
+              className="absolute w-64 h-64 rounded-full blur-3xl opacity-40"
+             
               transition={{
                 duration: 3,
                 repeat: Infinity,
@@ -94,7 +91,7 @@ export default function Analyze() {
 
             {/* Video */}
             <motion.video
-              className="relative w-full h-full object-cover rounded-2xl shadow-[0_0_30px_rgba(191,255,0,0.3)]"
+              className="relative w-full h-full object-cover rounded-2xl "
               src="/soroAnalytics.mp4"
               autoPlay
               loop
