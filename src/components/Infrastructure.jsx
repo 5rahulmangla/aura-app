@@ -31,7 +31,7 @@ export default function Infrastructure() {
         image: "/connectors-logo.png",
         title: "Monetize Your Edge",
         description:
-          "Optionally publish your signals to others and earn $0Z each time someone subscribes. Keep your raw data private while turning insights into passive income.",
+          "Optionally publish your signals to others and earn $SORO each time someone subscribes. Keep your raw data private while turning insights into passive income.",
       },
     ],
     businesses: [
